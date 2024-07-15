@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Nomes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Informe 10 nomes</h1>
+        <p>Este algoritmo tem como objetivo que o usuario escreva 10 nomes<br> e depois mostrar esses nomes ao usuario.</p>
+        <form id="namesForm">
+            <label for="nameInput">Nome:</label>
+            <input type="text" id="nameInput" maxlength="12">
+            <button type="button" onclick="addName()">Adicionar Nome</button>
+        </form>
+        <h2>Nomes digitados:</h2>
+        <ul id="namesList"></ul>
+    </div>
+    <script>
+        let names = []; // Array para armazenar os nomes digitados
+
+        function addName() {
+            const input = document.getElementById('nameInput');
+            const name = input.value.trim();
+
+            if (name !== '') {
+                names.push(name);
+                input.value = ''; // Limpar o campo de entrada
+
+                // Atualizar a lista na página
+                updateNamesList();
+            }
+        }
+
+        function updateNamesList() {
+            const list = document.getElementById('namesList');
+            list.innerHTML = ''; // Limpar a lista antes de recriar
+
+            names.forEach((name, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${index + 1}. ${name}`;
+                list.appendChild(listItem);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("01163084-matematica-basica.jpg");
+            background-size:cover;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: aliceblue;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: 100px;
+            border-radius: 5px;
+
+        }
+
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+
+        }
+
+        .linha1,
+        .linha2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .linha1 input {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .linha2 input {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        h1 {
+            color: aliceblue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora</h1>
+        <div class="linha1">
+            <input type="number" name="n1" id="n1">
+            <div id="operação">Operação</div>
+            <input type="number" name="n2" id="n2">
+            <p>=</p>
+            <input type="text" name="resultado" id="resultado" value="Resultado">
+        </div>
+        <div class="linha2">
+            <input type="button" value="+" onclick="somar()">
+            <input type="button" value="-" onclick="subtrair()">
+            <input type="button" value="x" onclick="multiplicar()">
+            <input type="button" value="/" onclick="divisao()">
+        </div>
+
+        <script>
+
+
+            function somar() {
+                var tn1 = document.getElementById('n1').value;
+                var tn2 = document.getElementById('n2').value;
+                var res = document.getElementById('resultado')
+                var num1 = Number(tn1)
+                var num2 = Number(tn2)
+                var s = num1 + num2
+                res.value = `${s}`
+                var op = document.getElementById('operação')
+                op.innerHTML = `+`
+            }
+
+            function subtrair() {
+                var tn1 = document.getElementById('n1').value;
+                var tn2 = document.getElementById('n2').value;
+                var res = document.getElementById('resultado')
+                var num1 = Number(tn1)
+                var num2 = Number(tn2)
+                var s = num1 - num2
+                res.value = `${s}`
+                var op = document.getElementById('operação')
+                op.innerHTML = `-`
+            }
+
+            function multiplicar() {
+                var tn1 = document.getElementById('n1').value;
+                var tn2 = document.getElementById('n2').value;
+                var res = document.getElementById('resultado')
+                var num1 = Number(tn1)
+                var num2 = Number(tn2)
+                var s = num1 * num2
+                res.value = `${s}`
+                var op = document.getElementById('operação')
+                op.innerHTML = `x`
+            }
+
+            function divisao() {
+                var tn1 = document.getElementById('n1').value;
+                var tn2 = document.getElementById('n2').value;
+                var res = document.getElementById('resultado')
+                var num1 = Number(tn1)
+                var num2 = Number(tn2)
+                var op = document.getElementById('operação')
+                op.innerHTML = `/`
+                if (num2 !== 0) {
+                    var s = num1 / num2;
+                    res.value = `A divisão é ${s}`;
+                } else {
+                    res.value = 'Erro';
+                }
+            }
+
+
+
+
+
+        </script>
+</body>
+
+</html>

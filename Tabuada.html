@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    background-image: url("numeros-em-ingles-de-1-a-100.jpg");
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#tabuada {
+    font-size: 18px;
+    line-height: 1.5;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Tabuada</h1>
+        <p>Este algoritmo tem como objetivo mostrar a tabuada!!</p>
+        <div id="tabuada"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    let num = prompt("Prezado, informe uma tabuada:");
+    if (num !== null && num !== "") {
+        num = parseInt(num);
+        if (!isNaN(num)) {
+            let tabuadaDiv = document.getElementById("tabuada");
+            tabuadaDiv.innerHTML = "";
+            for (let cont = 0; cont <= 10; cont++) {
+                let tabuada = num * cont;
+                tabuadaDiv.innerHTML += `${num} x ${cont} = ${tabuada}<br>`;
+            }
+        } else {
+            alert("Por favor, insira um número válido.");
+        }
+    } else {
+        alert("Por favor, insira um número.");
+    }
+});
+
+    </script>
+</body>
+</html>
